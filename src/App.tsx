@@ -1,18 +1,36 @@
-import { Button, Card, Space, Typography } from 'antd'
-import './App.css'
+import { ConfigProvider } from 'antd'
+import zhCN from 'antd/locale/zh_CN'
+import RoleplayPage from './pages/roleplay'
 
 function App() {
   return (
-    <div className="app-container">
-      <Card className="app-card" title="Vite + TypeScript + Ant Design">
-        <Space direction="vertical" size="middle" style={{ width: '100%' }}>
-          <Typography.Paragraph>
-            项目已创建完成，你现在可以基于 Ant Design 快速开发页面。
-          </Typography.Paragraph>
-          <Button type="primary">开始开发</Button>
-        </Space>
-      </Card>
-    </div>
+    <ConfigProvider
+      locale={zhCN}
+      theme={{
+        token: {
+          colorPrimary: '#b86b3d',
+          colorInfo: '#b86b3d',
+          colorBgLayout: '#f8efe7',
+          colorText: '#2b211b',
+          borderRadius: 8,
+          fontFamily:
+            "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        },
+        components: {
+          Button: {
+            controlHeight: 36,
+          },
+          Modal: {
+            borderRadiusLG: 8,
+          },
+          Drawer: {
+            borderRadiusLG: 8,
+          },
+        },
+      }}
+    >
+      <RoleplayPage />
+    </ConfigProvider>
   )
 }
 
